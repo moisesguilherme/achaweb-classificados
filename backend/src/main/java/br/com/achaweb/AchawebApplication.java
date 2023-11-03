@@ -1,4 +1,4 @@
-package br.com.achaweb.achaweb;
+package br.com.achaweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
