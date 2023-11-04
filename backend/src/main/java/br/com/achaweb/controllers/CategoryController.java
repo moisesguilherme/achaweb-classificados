@@ -1,5 +1,6 @@
 package br.com.achaweb.controllers;
 
+import br.com.achaweb.dto.CategoryDTO;
 import br.com.achaweb.entities.Category;
 import br.com.achaweb.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class CategoryController {
     private CategoryService service;
 
     @GetMapping
-    public ResponseEntity<List<Category>> findAll() {
-        List<Category> list = service.findAll();
+    public ResponseEntity<List<CategoryDTO>> findAll() {
+        List<CategoryDTO> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 }
