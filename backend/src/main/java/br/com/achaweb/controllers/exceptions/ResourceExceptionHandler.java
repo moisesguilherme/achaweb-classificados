@@ -1,6 +1,6 @@
 package br.com.achaweb.controllers.exceptions;
 
-import br.com.achaweb.services.exceptions.EntityNotFoundException;
+import br.com.achaweb.services.exceptions.EntityCategoryNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
@@ -13,8 +13,8 @@ import java.time.Instant;
 @ControllerAdvice
 public class ResourceExceptionHandler {
 
-    @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<StandardError> entityNotFound(EntityNotFoundException e, HttpServletRequest request) {
+    @ExceptionHandler(EntityCategoryNotFoundException.class)
+    public ResponseEntity<StandardError> entityNotFound(EntityCategoryNotFoundException e, HttpServletRequest request) {
         StandardError err = new StandardError();
         err.setTimestamp(String.valueOf(Instant.now()));
         err.setStatus(HttpStatus.NOT_FOUND.value());
