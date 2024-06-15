@@ -1,7 +1,10 @@
 package br.com.achaweb.controllers.exceptions;
 
+import java.io.Serial;
+
 public class StandardError {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private String timestamp;
