@@ -2,13 +2,14 @@ package br.com.achaweb.controllers.exceptions;
 
 import br.com.achaweb.services.exceptions.DatabaseException;
 import br.com.achaweb.services.exceptions.ResourceNotFoundException;
-import jakarta.servlet.http.HttpServletRequest;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.Instant;
 
 @ControllerAdvice
@@ -19,7 +20,7 @@ public class ResourceExceptionHandler {
         HttpStatus status = HttpStatus.NOT_FOUND;
         StandardError err = new StandardError();
         err.setTimestamp(String.valueOf(Instant.now()));
-        err.setStatus(status.value());
+        err.setStatus(Integer.valueOf(status.value()));
         err.setError("Resource not found");
         err.setMessage(e.getMessage());
         err.setPath(request.getRequestURI());
@@ -31,7 +32,7 @@ public class ResourceExceptionHandler {
         HttpStatus status = HttpStatus.BAD_REQUEST;
         StandardError err = new StandardError();
         err.setTimestamp(String.valueOf(Instant.now()));
-        err.setStatus(status.value());
+        err.setStatus(Integer.valueOf(status.value()));
         err.setError("Database exception");
         err.setMessage(e.getMessage());
         err.setPath(request.getRequestURI());

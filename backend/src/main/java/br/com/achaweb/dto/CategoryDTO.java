@@ -2,12 +2,10 @@ package br.com.achaweb.dto;
 
 import br.com.achaweb.entities.Category;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 public class CategoryDTO implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 1L;
 
     private Long id;

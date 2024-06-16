@@ -3,7 +3,6 @@ package br.com.achaweb.dto;
 import br.com.achaweb.entities.Category;
 import br.com.achaweb.entities.Product;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -12,7 +11,6 @@ import java.util.Set;
 
 public class ProductDTO implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 1L;
 
     private Long id;

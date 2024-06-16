@@ -8,7 +8,7 @@ import br.com.achaweb.repositories.CategoryRepository;
 import br.com.achaweb.repositories.ProductRepository;
 import br.com.achaweb.services.exceptions.DatabaseException;
 import br.com.achaweb.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -16,6 +16,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
 @Service
