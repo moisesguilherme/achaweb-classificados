@@ -13,9 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class CategoryService {
@@ -54,14 +52,13 @@ public class CategoryService {
             entity = repository.save(entity);
             return new CategoryDTO(entity);
         }catch(EntityNotFoundException e) {
-            throw new ResourceNotFoundException("Id not found" + id);
+            throw new ResourceNotFoundException("Id not found: " + id);
         }
     }
 
-
     public void delete(Long id) {
         if(!repository.existsById(id))
-            throw new ResourceNotFoundException("id not found");
+            throw new ResourceNotFoundException("id not found: " + id);
 
         try {
             repository.deleteById(id);
