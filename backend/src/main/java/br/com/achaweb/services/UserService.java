@@ -58,8 +58,9 @@ public class UserService {
     public UserDTO update(Long id, UserDTO dto) {
         try{
             User entity = repository.getOne(id);
-            //entity.setName(dto.getName());
+            copyDtoToEntity(dto, entity);
             entity = repository.save(entity);
+            //Todo alterar password
             return new UserDTO(entity);
         }catch(EntityNotFoundException e) {
             throw new ResourceNotFoundException("Id not found: " + id);
