@@ -5,6 +5,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.util.*;
@@ -19,11 +22,23 @@ public class User implements UserDetails, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank
+    @Size(max = 20)
     private String firstName;
+
+    @NotBlank
+    @Size(max = 20)
     private String lastName;
 
+
     @Column(unique = true)
+    @NotBlank
+    @Email
     private String email;
+
+    @NotBlank
+    //@Size(max = 20)
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)

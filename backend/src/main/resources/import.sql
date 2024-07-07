@@ -64,3 +64,19 @@ INSERT INTO tb_product_category (product_id, category_id) VALUES (22, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (23, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (24, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (25, 3);
+
+INSERT INTO tb_state (abbreviation, name) VALUES ('AC', 'Acre'),('AL', 'Alagoas'),('AP', 'Amapá'),('AM', 'Amazonas'),('BA', 'Bahia'),('CE', 'Ceará'),('DF', 'Distrito Federal'),('ES', 'Espírito Santo'),('GO', 'Goiás'),('MA', 'Maranhão'),('MT', 'Mato Grosso'),('MS', 'Mato Grosso do Sul'),('MG', 'Minas Gerais'),('PA', 'Pará'),('PB', 'Paraíba'),('PR', 'Paraná'),('PE', 'Pernambuco'),('PI', 'Piauí'),('RJ', 'Rio de Janeiro'),('RN', 'Rio Grande do Norte'),('RS', 'Rio Grande do Sul'),('RO', 'Rondônia'),('RR', 'Roraima'),('SC', 'Santa Catarina'),('SP', 'São Paulo'),('SE', 'Sergipe'),('TO', 'Tocantins');
+INSERT INTO tb_region (description, name) VALUES ('Norte', 'Região Norte'), ('Nordeste', 'Região Nordeste'), ('Sudeste', 'Região Sudeste'), ('Sul', 'Região Sul'), ('Centro-Oeste', 'Região Centro-Oeste');
+
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('São Paulo', 3, 25); -- Sudeste, SP
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Rio de Janeiro', 3, 19);  -- Sudeste, RJ
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Belo Horizonte', 3, 13);  -- Sudeste, MG
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Porto Alegre', 4, 21);    -- Sul, RS
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Curitiba', 4, 16);        -- Sul, PR
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Salvador', 2, 5);         -- Nordeste, BA
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Recife', 2, 17);          -- Nordeste, PE
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Fortaleza', 2, 6);        -- Nordeste, CE
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Brasília', 5, 7);         -- Centro-Oeste, DF
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Goiânia', 5, 9);          -- Centro-Oeste, GO
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Manaus', 1, 13);          -- Norte, AM
+INSERT INTO tb_city (name, region_id, state_id) VALUES ('Belém', 1, 14);           -- Norte, PA

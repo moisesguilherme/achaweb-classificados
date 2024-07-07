@@ -1,6 +1,7 @@
 package br.com.achaweb.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -17,6 +18,7 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String name;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
