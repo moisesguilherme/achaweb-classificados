@@ -80,3 +80,9 @@ INSERT INTO tb_city (name, region_id, state_id) VALUES ('Brasília', 5, 7);     
 INSERT INTO tb_city (name, region_id, state_id) VALUES ('Goiânia', 5, 9);          -- Centro-Oeste, GO
 INSERT INTO tb_city (name, region_id, state_id) VALUES ('Manaus', 1, 13);          -- Norte, AM
 INSERT INTO tb_city (name, region_id, state_id) VALUES ('Belém', 1, 14);           -- Norte, PA
+
+--- group category
+INSERT INTO tb_groupcategory (id, description, name) VALUES (1, 'Todos os serviços', 'Serviços'), (2, 'Venda', 'Todos os tipos de venda');
+INSERT INTO TB_REGION_GROUPCATEGORY (REGION_ID, GROUPCATEGORY_ID) VALUES (1, 1), (3, 1), (3, 2);
+INSERT INTO TB_GROUPCATEGORY_CATEGORY (GROUPCATEGORY_ID, CATEGORY_ID) VALUES (1, 1), (1, 2);
+

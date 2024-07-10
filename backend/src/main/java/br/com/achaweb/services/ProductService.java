@@ -12,6 +12,7 @@ import br.com.achaweb.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,7 @@ import javax.persistence.EntityNotFoundException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -39,6 +41,16 @@ public class ProductService {
         repository.findProductsWithCategories(page.getContent());
         return page.map(x -> new ProductDTO(x, x.getCategories()));
     }
+
+    @Transactional(readOnly = true)
+    public Page<ProductDTO> findByRegionOrCityPaged(Long regionId, Long cityId, PageRequest pageRequest) {
+
+        List<Product> products = repository.findByRegionOrCity(cityId);
+        List<ProductDTO> productsDto = products.stream().map(x -> new ProductDTO(x, x.getCategories())).collect(Collectors.toList());
+        Page<ProductDTO> productDtoPage = new PageImpl<>(productsDto, pageRequest, productsDto.size());
+        return productDtoPage;
+    }
+
 
     @Transactional(readOnly = true)
     public ProductDTO findById(Long id) {
